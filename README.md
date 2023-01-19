@@ -202,4 +202,78 @@ int main() {
     while (it != end) {
         cout << "Operator found: " << it->str() << endl;
         it++;
+   
+
+
+
+
+
+
+
+public class Employee {
+    private String firstName;
+    private String lastName;
+    private double monthlySalary;
+
+    // constructor
+    public Employee(String firstName, String lastName, double monthlySalary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        setMonthlySalary(monthlySalary);
     }
+
+    // set method for first name
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    // get method for first name
+    public String getFirstName() {
+        return firstName;
+    }
+
+    // set method for last name
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    // get method for last name
+    public String getLastName() {
+        return lastName;
+    }
+
+    // set method for monthly salary
+    public void setMonthlySalary(double monthlySalary) {
+        if (monthlySalary > 0) {
+            this.monthlySalary = monthlySalary;
+        }
+    }
+
+    // get method for monthly salary
+    public double getMonthlySalary() {
+        return monthlySalary;
+    }
+}
+
+
+
+
+
+public class EmployeeTest {
+    public static void main(String[] args) {
+        Employee e1 = new Employee("John", "Doe", 2000);
+        Employee e2 = new Employee("Jane", "Smith", 2500);
+
+        System.out.println("Employee 1: " + e1.getFirstName() + " " + e1.getLastName() + " Yearly Salary: $" + e1.getMonthlySalary()*12);
+        System.out.println("Employee 2: " + e2.getFirstName() + " " + e2.getLastName() + " Yearly Salary: $" + e2.getMonthlySalary()*12);
+
+        e1.setMonthlySalary(e1.getMonthlySalary()*1.1);
+        e2.setMonthlySalary(e2.getMonthlySalary()*1.1);
+
+        System.out.println("Employee 1: " + e1.getFirstName() + " " + e1.getLastName() + " Yearly Salary: $" + e1.getMonthlySalary()*12);
+        System.out.println("Employee 2: " + e2.getFirstName() + " " + e2.getLastName() + " Yearly Salary: $" + e2.getMonthlySalary()*12);
+    }
+}
+
+
+
