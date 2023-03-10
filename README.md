@@ -308,3 +308,55 @@ int main() {
     return 0;
 }
 
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+// Function to check if a grammar is left recursive
+bool isLeftRecursive(string nonTerminal, vector<vector<string>> productionRules) {
+    for (vector<string> rule : productionRules) {
+        if (rule[0] == nonTerminal && rule[1][0] == nonTerminal[0]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Function to print the left recursive production rule
+void printLeftRecursiveRule(string nonTerminal, vector<vector<string>> productionRules) {
+    for (vector<string> rule : productionRules) {
+        if (rule[0] == nonTerminal && rule[1][0] == nonTerminal[0]) {
+            cout << rule[0] << " -> " << rule[1] << endl;
+        }
+    }
+}
+
+int main() {
+    // Example production rules
+    vector<vector<string>> productionRules = {
+        {"E", "E+T"},
+        {"E", "T"},
+        {"T", "T*F"},
+        {"T", "F"},
+        {"F", "(E)"},
+        {"F", "id"}
+    };
+
+    string nonTerminal = "E";
+
+    if (isLeftRecursive(nonTerminal, productionRules)) {
+        cout << "Grammar is left recursive.\n";
+        cout << "Left recursive production rule: ";
+        printLeftRecursiveRule(nonTerminal, productionRules);
+    } else {
+        cout << "Grammar is not left recursive.\n";
+    }
+
+    return 0;
+}
+
+
