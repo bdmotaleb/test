@@ -276,4 +276,35 @@ public class EmployeeTest {
 }
 
 
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char input[50];
+    printf("Enter the identifier: ");
+    scanf("%s", input);
+
+    int len = strlen(input);
+    int valid = 1;
+
+    if (!isalpha(input[0]) && input[0] != '_') {
+        valid = 0;
+    }
+
+    for (int i = 1; i < len; i++) {
+        if (!isalnum(input[i]) && input[i] != '_') {
+            valid = 0;
+            break;
+        }
+    }
+
+    if (valid == 1) {
+        printf("Valid identifier.\n");
+    } else {
+        printf("Not a valid identifier.\n");
+    }
+
+    return 0;
+}
 
